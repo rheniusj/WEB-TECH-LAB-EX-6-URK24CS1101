@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>J RHENIUS | Personal Portfolio</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f4f6f8;
+            color: #1f2937;
+            transition: 0.5s;
+        }
+
+        header {
+            background-color: #111827;
+            color: white;
+
+            padding: 20px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            color: #38bdf8;
+            font-size: 28px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 16px;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        .hero {
+            min-height: 500px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f172a,
+                    #1e3a8a
+                );
+
+            color: white;
+
+            padding: 40px 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h2 {
+            font-size: 50px;
+            margin-bottom: 15px;
+
+            transition: 0.5s;
+        }
+
+        .hero h3 {
+            font-size: 25px;
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        button {
+            padding: 12px 22px;
+
+            border: none;
+            border-radius: 6px;
+
+            background-color: #38bdf8;
+            color: #111827;
+
+            cursor: pointer;
+
+            margin: 5px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            background-color: #7dd3fc;
+        }
+
+        section {
+            padding: 70px 10%;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 32px;
+            color: #1e3a8a;
+
+            margin-bottom: 25px;
+        }
+
+        #aboutText {
+            max-width: 750px;
+
+            margin: auto;
+
+            line-height: 1.8;
+
+            font-size: 18px;
+
+            transition: 0.3s;
+
+            cursor: pointer;
+        }
+
+        #message {
+            max-width: 600px;
+
+            margin: 30px auto;
+
+            padding: 20px;
+
+            background-color: white;
+
+            border-radius: 10px;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+            transition: 0.5s;
+        }
+
+        .skills {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
+        }
+
+        .skill {
+            width: 200px;
+
+            background-color: white;
+
+            padding: 30px 20px;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,0.1);
+
+            transition: 0.4s;
+        }
+
+        .skill:hover {
+            transform: translateY(-12px);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .skill h3 {
+            color: #2563eb;
+
+            margin-bottom: 10px;
+        }
+        .projects {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
+        }
+
+        .project {
+            width: 250px;
+
+            background-color: white;
+
+            padding: 25px;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,0.1);
+
+            transition: 0.4s;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+        }
+
+        .project h3 {
+            color: #2563eb;
+
+            margin-bottom: 12px;
+        }
+
+        .project p {
+            line-height: 1.6;
+        }
+
+        #clock {
+            font-size: 40px;
+
+            font-weight: bold;
+
+            color: #2563eb;
+
+            margin: 20px;
+        }
+
+        #animation-container {
+
+            width: 500px;
+
+            max-width: 90%;
+
+            height: 120px;
+
+            background-color: #e5e7eb;
+
+            position: relative;
+
+            margin: 30px auto;
+
+            overflow: hidden;
+
+            border-radius: 12px;
+
+            border: 2px solid #cbd5e1;
+        }
+
+
+        /* Moving Box */
+
+        #box {
+
+            width: 60px;
+
+            height: 60px;
+
+            background-color: #ef4444;
+
+            position: absolute;
+
+            top: 28px;
+
+            left: 0;
+
+            border-radius: 10px;
+        }
+
+        #students {
+
+            max-width: 700px;
+
+            margin: auto;
+
+            text-align: left;
+        }
+
+        .student-card {
+
+            background-color: white;
+
+            margin: 12px 0;
+
+            padding: 15px 20px;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        footer {
+
+            background-color: #111827;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+        footer span {
+            color: #38bdf8;
+        }
+
+        @media(max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 8px;
+            }
+
+            .hero h2 {
+                font-size: 36px;
+            }
+
+            .hero h3 {
+                font-size: 20px;
+            }
+
+            #animation-container {
+                width: 90%;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <h1>J RHENIUS</h1>
+
+        <nav>
+
+            <a href="#home">Home</a>
+
+            <a href="#about">About</a>
+
+            <a href="#skills">Skills</a>
+
+            <a href="#projects">Projects</a>
+
+            <a href="#animation">Animation</a>
+
+        </nav>
+
+    </header>
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h2 id="welcome">
+                Hello, I'm J RHENIUS
+            </h2>
+
+            <h3>
+                B.Tech Computer Science & Engineering Student
+            </h3>
+
+            <p>
+                Passionate about Technology, Artificial Intelligence,
+                Data and Web Development.
+            </p>
+
+
+            <button onclick="changeStyle()">
+                Change Style
+            </button>
+
+
+            <button onclick="toggleMessage()">
+                Show / Hide
+            </button>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h2>Digital Clock</h2>
+
+        <p>
+            Current Time
+        </p>
+
+        <div id="clock">
+            00:00:00
+        </div>
+
+    </section>
+
+    <section id="about">
+
+        <h2>About Me</h2>
+
+        <p
+            id="aboutText"
+            onmouseover="increaseFont()"
+            onmouseout="decreaseFont()"
+        >
+
+            I am J RHENIUS, a Computer Science and Engineering
+            student interested in programming, artificial
+            intelligence, data science and modern technologies.
+
+            Move your mouse over this paragraph to see the
+            JavaScript mouse event effect.
+
+        </p>
+
+
+        <div id="message">
+
+            Welcome to my personal portfolio!
+
+            <br><br>
+
+            This portfolio demonstrates
+            JavaScript styles, objects,
+            timing events and animations.
+
+        </div>
+
+    </section>
+
+    <section id="skills">
+
+        <h2>My Skills</h2>
+
+
+        <div class="skills">
+
+
+            <div class="skill">
+
+                <h3>Python</h3>
+
+                <p>
+                    Programming
+                </p>
+
+            </div>
+
+
+
+            <div class="skill">
+
+                <h3>Java</h3>
+
+                <p>
+                    Object Oriented Programming
+                </p>
+
+            </div>
+
+
+
+            <div class="skill">
+
+                <h3>JavaScript</h3>
+
+                <p>
+                    Web Development
+                </p>
+
+            </div>
+
+
+
+            <div class="skill">
+
+                <h3>SQL</h3>
+
+                <p>
+                    Database Management
+                </p>
+
+            </div>
+
+
+
+            <div class="skill">
+
+                <h3>AI</h3>
+
+                <p>
+                    Artificial Intelligence
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="projects">
+
+        <h2>My Projects</h2>
+
+
+        <div class="projects">
+
+
+            <div class="project">
+
+                <h3>Bus Reservation System</h3>
+
+                <p>
+                    A Java based bus reservation system
+                    using MySQL database.
+                </p>
+
+            </div>
+
+
+
+            <div class="project">
+
+                <h3>EcoSight</h3>
+
+                <p>
+                    An AI-based concept for identifying
+                    and improving recycling practices.
+                </p>
+
+            </div>
+
+
+
+            <div class="project">
+
+                <h3>Portfolio Website</h3>
+
+                <p>
+                    Personal portfolio created using
+                    HTML, CSS and JavaScript.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="animation">
+
+        <h2>JavaScript Animation</h2>
+
+        <p>
+            Click Start to move the object.
+            Click Stop to stop the animation.
+        </p>
+
+
+        <div id="animation-container">
+
+            <div id="box"></div>
+
+        </div>
+
+
+        <button onclick="startAnimation()">
+            Start Animation
+        </button>
+
+
+        <button onclick="stopAnimation()">
+            Stop Animation
+        </button>
+
+    </section>
+
+    <section>
+
+        <h2>Student Details</h2>
+
+        <div id="students"></div>
+
+    </section>
+
+    <footer>
+
+        <p>
+            © 2026
+            <span>J RHENIUS</span>
+            | Personal Portfolio
+        </p>
+
+    </footer>
+
+    <script>
+
+        function displayClock() {
+
+            // Create Date object
+            let date = new Date();
+
+
+            // Get current time
+            let hours = date.getHours();
+
+            let minutes = date.getMinutes();
+
+            let seconds = date.getSeconds();
+
+
+            // Add zero for single digits
+
+            hours =
+                String(hours).padStart(2, "0");
+
+            minutes =
+                String(minutes).padStart(2, "0");
+
+            seconds =
+                String(seconds).padStart(2, "0");
+
+
+            // Display time
+
+            document.getElementById("clock").innerHTML =
+                hours + ":" + minutes + ":" + seconds;
+
+        }
+
+
+        // Call every 1 second
+
+        setInterval(displayClock, 1000);
+
+
+        // Display immediately
+
+        displayClock();
+
+        function changeStyle() {
+
+            let title =
+                document.getElementById("welcome");
+
+
+            title.style.color = "#facc15";
+
+            title.style.fontSize = "55px";
+
+            title.style.backgroundColor = "#1e293b";
+
+            title.style.padding = "15px";
+
+            title.style.borderRadius = "10px";
+
+        }
+
+        function toggleMessage() {
+
+            let message =
+                document.getElementById("message");
+
+
+            if (message.style.display === "none") {
+
+                message.style.display = "block";
+
+            }
+
+            else {
+
+                message.style.display = "none";
+
+            }
+
+        }
+
+        function increaseFont() {
+
+            document.getElementById("aboutText")
+                .style.fontSize = "25px";
+
+        }
+
+        function decreaseFont() {
+
+            document.getElementById("aboutText")
+                .style.fontSize = "18px";
+
+        }
+
+        let position = 0;
+
+        let animation;
+
+
+
+        function startAnimation() {
+
+            let box =
+                document.getElementById("box");
+
+
+            // Reset position
+
+            position = 0;
+
+
+            // Start animation
+
+            animation =
+                setInterval(function () {
+
+
+                    if (position >= 430) {
+
+                        clearInterval(animation);
+
+                    }
+
+                    else {
+
+                        position++;
+
+                        box.style.left =
+                            position + "px";
+
+                    }
+
+
+                }, 10);
+
+        }
+
+        function stopAnimation() {
+
+            clearInterval(animation);
+
+
+            document.getElementById("box")
+                .style.left = "0px";
+
+
+            position = 0;
+
+        }
+        class Developer {
+
+
+            constructor(name, skill) {
+
+                this.name = name;
+
+                this.skill = skill;
+
+            }
+
+
+            introduce() {
+
+                return this.name +
+                    " is skilled in " +
+                    this.skill;
+
+            }
+
+        }
+
+        let developer =
+            new Developer(
+                "J RHENIUS",
+                "Web Development"
+            );
+
+        console.log(
+            developer.introduce()
+        );
+
+        let students = [
+
+
+            {
+                name: "John",
+
+                regno: "UR23CS001",
+
+                year: 1999
+            },
+
+
+            {
+                name: "Joseph",
+
+                regno: "UR23CS002",
+
+                year: 2001
+            },
+
+
+            {
+                name: "David",
+
+                regno: "UR23CS003",
+
+                year: 1998
+            },
+
+
+            {
+                name: "Daniel",
+
+                regno: "UR23CS004",
+
+                year: 2002
+            }
+
+
+        ];
+
+        function displayStudents() {
+
+
+            let output = "";
+
+
+            for (
+                let i = 0;
+                i < students.length;
+                i++
+            ) {
+
+
+                output +=
+                    "<div class='student-card'>";
+
+
+                output +=
+                    "<strong>" +
+                    students[i].name +
+                    "</strong>'s Register Number is " +
+                    students[i].regno;
+
+
+                output += "<br>";
+
+
+                // if / else condition
+
+                if (students[i].year < 2000) {
+
+                    output +=
+                        "Year of Birth: " +
+                        students[i].year +
+                        " - Born before 2000";
+
+                }
+
+                else {
+
+                    output +=
+                        "Year of Birth: " +
+                        students[i].year +
+                        " - Born after 2000";
+
+                }
+
+
+                output += "</div>";
+
+            }
+
+
+            document.getElementById("students")
+                .innerHTML = output;
+
+        }
+
+
+        // Call function
+
+        displayStudents();
+
+        setTimeout(function() {
+
+
+            console.log(
+                "Welcome to J RHENIUS Personal Portfolio!"
+            );
+
+
+        }, 2000);
+
+
+    </script>
+
+
+</body>
+
+</html>
